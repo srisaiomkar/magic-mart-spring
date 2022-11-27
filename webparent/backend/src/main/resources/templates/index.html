@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Magic mart admin application</title>
-</head>
-<body>
-    <h1>Welcome to Magic mart admin application</h1>
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- charecter encoding = utf 8 -->
+    <meta charset="UTF-8" />
+    <!-- The viewport META tag allows device width to map to the width CSS property, which essentially means that device pixels correctly map to CSS pixels, allowing elements and fonts to correctly scale on mobile devices. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Magic Mart admin</title>
+
+    <!-- th:href = "@{}" uses relative path -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+    />
+    <script
+      type="text/javascript"
+      th:src="@{/webjars/jquery/jquery.min.js}"
+    ></script>
+    <script
+      type="text/javascript"
+      th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"
+    ></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div><h1>Welcome to Magic mart admin application test</h1></div>
+      <div><p>Magic Mart Copyright -&copy;</p></div>
+    </div>
+  </body>
 </html>
