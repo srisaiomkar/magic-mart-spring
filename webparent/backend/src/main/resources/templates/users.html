@@ -74,8 +74,33 @@
           </div>
         </nav>
       </div>
-      <div><h1>Welcome to Magic mart admin application</h1></div>
-      <div><p>Magic Mart Copyright -&copy;</p></div>
+      <div><h1>Manage users</h1></div>
+      <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Photos</th>
+            <th scope="col">Email</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Roles</th>
+            <th scope="col">Enabled</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="user : ${listUsers}">
+            <td th:text="${user.id}"></td>
+            <td></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.roles}"></td>
+            <td th:text="${user.enabled}"></td>
+            <td>Edit &nbsp; Delete</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center"><p>Magic Mart Copyright -&copy;</p></div>
     </div>
   </body>
 </html>
