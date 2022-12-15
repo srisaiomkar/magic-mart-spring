@@ -3,6 +3,7 @@ package com.magicmart.admin.user;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.magicmart.common.entity.Role;
@@ -17,6 +18,9 @@ public class UserService {
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     public List<User> listAllUsers(){
         return (List<User>) userRepository.findAll();
     }
@@ -25,7 +29,13 @@ public class UserService {
         return (List<Role>) roleRepository. findAll();
     }
     public void saveUser(User user){
+        encodeUserPassword(user);
         userRepository.save(user);
+    }
+
+    private void encodeUserPassword(User user){
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
     }
     
 }
