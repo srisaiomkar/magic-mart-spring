@@ -88,4 +88,11 @@ public class UserRepositoryTests {
         userRepository.deleteById(6);
         assertFalse(userRepository.findById(6).isPresent());
     }
+
+    @Test
+    public void TestGetUserByEmail(){
+        String email = "tp2@test.com";
+        User user = userRepository.findTopUserByEmail(email);
+        assertNotNull(user);
+    }
 }
